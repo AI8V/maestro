@@ -65,7 +65,6 @@ graph TD;
     style F fill:#4C566A,stroke:#A3BE8C,stroke-width:2px;
     style H fill:#4C566A,stroke:#A3BE8C,stroke-width:2px;
 ```
-ذذ
 
 
 ---
@@ -83,6 +82,10 @@ graph TD;
 
 ---
 
+---
+
+
+  
 ## ■ **البدء السريع (Quick Start)**
 
 1.  **استكشف الواجهة:**
@@ -116,4 +119,4 @@ graph TD;
 
 ## ■ **الترخيص**
 
-هذا المشروع مرخص بموجب [ترخيص MIT](https://github.com/AI8V/maestro/blob/main/LICENSE).
+هذا المشروع مرخص بموجب [ترخيص MIT](https://github.com/AI8V/maestro/LICENSE).
