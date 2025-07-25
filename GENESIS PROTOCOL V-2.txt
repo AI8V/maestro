@@ -203,13 +203,34 @@ Blueprint 3: 🛠️ How-To Guide
    
 Blueprint 4: 🍳 Recipe Card
 (For recipes with ingredients and instructions.)
+
 <section id="recipe-card" class="mb-5 recipe-card">
     <div class="card shadow-sm">
         <div class="card-header text-white bg-success">
             <h2 id="recipe-heading" class="mb-0 h4">... Recipe Title ...</h2>
         </div>
         <div class="card-body">
-            <img class="rounded img-fluid mb-3" src="..." alt="..." width="785" height="400" loading="lazy">
+            <figure class="figure d-table mx-auto">
+              <picture>
+                <source 
+                    type="image/webp"
+                    srcset=".../recipe-image-400.webp 400w, .../recipe-image-785.webp 785w"
+                    sizes="(max-width: 991px) 100vw, 83vw"
+                >
+                <img 
+                    class="img-fluid rounded shadow-sm"
+                    src=".../recipe-image-785.jpg" 
+                    srcset=".../recipe-image-400.jpg 400w, .../recipe-image-785.jpg 785w"
+                    sizes="(max-width: 991px) 100vw, 83vw"
+                    width="785"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                    alt="..."
+                >
+              </picture>
+              <figcaption class="figure-caption text-center mt-2">...</figcaption>
+            </figure>
             <p>...</p>
             <div class="row text-center mb-4">
                 <!-- Our tool finds ".prep-time" and ".cook-time" -->
@@ -222,13 +243,14 @@ Blueprint 4: 🍳 Recipe Card
                 <li>... Ingredient 1 ...</li>
             </ul>
             <h3 class="h5 mt-4">التعليمات:</h3>
-             <!-- Our tool finds ".recipe-instructions li" -->
+            <!-- Our tool finds ".recipe-instructions li" -->
             <ol class="list-group list-group-numbered recipe-instructions">
                  <li class="list-group-item">... Instruction 1 ...</li>
             </ol>
         </div>
     </div>
 </section>
+
    
 Blueprint 5: ❓ FAQ Section
 (For question and answer formats.)
@@ -277,6 +299,7 @@ Blueprint 6: 🗓️ Event Card
 
 Blueprint 7: 🏢 Organization Card
 (For displaying organization details.)
+
 <section id="organization-card" class="mb-5">
     <div class="card shadow-sm">
         <div class="card-header">
@@ -284,7 +307,26 @@ Blueprint 7: 🏢 Organization Card
         </div>
         <div class="card-body">
             <!-- Our tool finds "img" with "logo" in class or alt -->
-            <img src="..." class="img-fluid org-logo" alt="Company Logo">
+            <figure class="figure d-table mx-auto">
+              <picture>
+                 <source 
+                    type="image/webp"
+                    srcset=".../logo-150.webp 150w, .../logo-300.webp 300w"
+                    sizes="150px"
+                >
+                <img 
+                    class="img-fluid org-logo"
+                    src=".../logo-300.png"
+                    srcset=".../logo-150.png 150w, .../logo-300.png 300w"
+                    sizes="150px"
+                    width="250"
+                    height="150"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Company Logo"
+                >
+              </picture>
+            </figure>
             <!-- Our tool finds ".address" -->
             <p class="address mt-3">... Full Address ...</p>
             <!-- Our tool finds "a[href^='tel:']" -->
@@ -292,6 +334,8 @@ Blueprint 7: 🏢 Organization Card
         </div>
     </div>
 </section>
+
+
 
 Blueprint 8: 🎯 Final Call to Action (CTA)
 (A non-schema, structural component for concluding the page.)
