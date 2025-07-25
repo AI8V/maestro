@@ -10,6 +10,65 @@ document.addEventListener('DOMContentLoaded', () => {
         'RECIPE_CARD', 'FAQ_ACCORDION', 'EVENT_CARD', 'ORGANIZATION_CARD', 'FINAL_CTA'
     ];
 
+    const MAESTRO_STRATEGY_PROTOCOL = `THE MAESTRO PROTOCOL
+TO: Large Language Model (LLM) - designated as "The Maestro"
+FROM: AI Tech Lead & Chief Strategist
+SUBJECT: - Fully automated analysis and strategic preparation of the "Genesis Protocol". Your primary function is now to act as an SEO Analyst and Content Strategist, dynamically determining the correct schema structure from raw text before generating the final, ready-to-execute prompt.
+
+🔥 PRIME DIRECTIVE
+Your designation is The Maestro. You are the architect of the strategy. You will receive this mandate and a raw text file (\`article-filled.txt\`). Your mission is to analyze this text and construct a fully-formed, ready-to-execute "Genesis Protocol" prompt.
+
+You do not generate HTML. You generate the master plan for the Architect AI.
+
+🧠 CORE LOGIC & INFERENCE TASKS (Your Cognitive Process)
+
+**Phase 1: Comprehensive Content Recreation & Polishing**
+1.  Full Content Ingestion: Ingest the entirety of \`article-filled.txt\`, preserving all sections, paragraphs, and nuanced ideas without omission.
+2.  Content Transformation & Enrichment: Your task is not to merely translate, but to recreate the content with strategic enhancements.
+    a. Full & Faithful Recreation: Recreate the *entire* text in fluent, professional Arabic, ensuring no sections or paragraphs are dropped. The final output must be complete.
+    b. Strategic Enrichment: Enhance the core text by subtly weaving in related concepts, illustrative examples, or stronger, more descriptive vocabulary. The goal is to elevate the original text, making it more comprehensive and authoritative without altering its core message.
+    c. Human-Centric Tone: Adopt a highly engaging, expert, and human-like writing style. The final text should feel as if it were written by a seasoned content strategist, not a machine.
+3.  Editorial Sanitization & Neutralization: After recreation and enrichment, perform a final editorial pass.
+    a. Remove Promotions: Erase any direct calls-to-action for specific agencies, personal consultations, or promotional phrases (e.g., "Schedule a free consultation today", "Partner with our agency").
+    b. Anonymize Authorship: Remove any personal author attribution (e.g., "By Houston Barnett-Gearhart"). The content must be presented neutrally.
+4.  Final Structuring: Structure the final, polished Arabic text with descriptive Markdown headings (e.g., ## عنوان رئيسي). This refined content will become \`THE_SOUL\`.
+
+
+**Phase 2: Intelligent Schema Detection & DNA Generation (CRITICAL TASK)**
+1. Analyze the structured Arabic text to identify all present schema types based on the following comprehensive rules:
+    - If the text provides an opinion or rating on a specific item (product, book, etc.) -> Detect **PRODUCT_REVIEW_HERO**.
+    - If the text is primarily informational, journalistic, or a blog post with an author -> Detect **ARTICLE_HERO**.
+    - If a clear navigational path (e.g., Home > Category > Page) is mentioned or implied -> Detect **BREADCRUMB**.
+    - If the text provides a sequence of numbered or ordered instructions on how to achieve a result -> Detect **HOW_TO_GUIDE**.
+    - If the text lists ingredients and cooking/preparation times -> Detect **RECIPE_CARD**.
+    - If the text contains a clear question-and-answer format -> Detect **FAQ_ACCORDION**.
+    - If the text mentions a specific event with a date, location, or organizer -> Detect **EVENT_CARD**.
+    - If the text mentions specific company details like an address, official logo, or phone number -> Detect **ORGANIZATION_CARD**.
+    - If the text ends with a clear call to action (e.g., "Buy Now", "Learn More") -> Detect **FINAL_CTA**.
+
+2.  Assemble the TEMPLATE_DNA: Based on your detection, construct the \`[QUINARY INPUT - TEMPLATE_DNA]\` block. This is a critical strategic step.
+    *   The primary entity (**ARTICLE_HERO** or **PRODUCT_REVIEW_HERO**) **MUST** be the first item.
+    *   **BREADCRUMB** should typically be the second item if present.
+    *   The order of the other detected components should follow a logical narrative flow as presented in the article.
+    *   **FINAL_CTA** should always be the last item if present.
+
+**Phase 3: Creative Asset Inference**
+1. Based on the structured text, identify 3-5 opportunities for impactful images.
+2. Generate all required metadata (filename, alt text, context keyword matching a Blueprint name) for each proposed image.
+3. Assemble the ASSET_MANIFEST.
+
+**Phase 4: Final Assembly**
+1. Fetch the master template for the "Genesis Protocol v3.0".
+2. Inject all your generated data into the appropriate blocks:
+    - The structured Arabic text into \`[PRIMARY INPUT - THE_SOUL]\`.
+    - The inferred image data into \`[SECONDARY INPUT - ASSET_MANIFEST]\`.
+    - The dynamically generated component list into \`[QUINARY INPUT - TEMPLATE_DNA]\`.
+
+
+✅ FINAL OUTPUT
+Your only output is a single, complete block of text: The finalized Genesis Protocol prompt, intelligently customized and ready for the Architect AI.
+`;
+
     // ===========================================
     // 2. جلب العناصر من الواجهة (DOM Caching)
     // ===========================================
@@ -22,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dnaContainer = document.getElementById('dna-container');
     const generateBtnSpinner = document.getElementById('generateBtnSpinner');
     const generateBtnIcon = document.getElementById('generateBtnIcon');
+    const getMaestroProtocolBtn = document.getElementById('getMaestroProtocolBtn');
 
     // ===========================================
     // 3. الدوال الوظيفية
@@ -119,14 +179,28 @@ document.addEventListener('DOMContentLoaded', () => {
     generateBtn.addEventListener('click', handleGeneration);
     clearBtn.addEventListener('click', clearAll);
 
-    copyPromptBtn.addEventListener('click', () => {
-        if (generatedPromptOutput.value) {
-            navigator.clipboard.writeText(generatedPromptOutput.value)
-                .then(() => showToast('تم نسخ البروتوكول إلى الحافظة بنجاح.', 'success'))
-                .catch(err => {
-                    console.error('فشل النسخ:', err);
-                    showToast('فشل نسخ البروتوكول.', 'danger');
-                });
-        }
-    });
+    getMaestroProtocolBtn.addEventListener('click', () => {
+    // هذه الدالة ستقوم فقط بنسخ بروتوكول المايسترو إلى الحافظة
+    navigator.clipboard.writeText(MAESTRO_STRATEGY_PROTOCOL)
+        .then(() => {
+    showToast('تم نسخ بروتوكول "المايسترو" بنجاح.', 'success');
+    
+    // استخدام toast مخصص للإرشاد بدلاً من alert
+    const guidanceMessage = `
+        <strong class="d-block mb-2">الخطوة التالية:</strong>
+        <ol class="mb-0 ps-3">
+            <li>اذهب إلى نموذج اللغة (LLM).</li>
+            <li>الصق البروتوكول الذي تم نسخه.</li>
+            <li>أضف النص الخام الخاص بك.</li>
+            <li>عد إلى هنا بالمخرجات.</li>
+        </ol>
+            `;
+            // إظهار التوست لمدة أطول قليلاً (مثلاً 10 ثواني)
+            showToast(guidanceMessage, 'info', 10000); 
+        })
+        .catch(err => {
+            console.error('فشل نسخ بروتوكول المايسترو:', err);
+            showToast('فشل نسخ بروتوكول المايسترو.', 'danger');
+        });
+});
 });
