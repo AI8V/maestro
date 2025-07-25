@@ -135,7 +135,10 @@ Your only output is a single, complete block of text: The finalized Genesis Prot
 
             if (finalPrompt) {
                 generatedPromptOutput.value = finalPrompt;
-                copyPromptBtn.disabled = false;
+                    copyPromptBtn.classList.remove('btn-danger');
+                    copyPromptBtn.classList.add('btn-success');
+                    copyPromptBtn.innerHTML = `<i class="bi bi-clipboard ms-1" aria-hidden="true"></i> نسخ البروتوكول`;
+                    copyPromptBtn.disabled = false;
                 showToast('تم توليد بروتوكول Genesis بنجاح!', 'success');
             } else {
                 showToast('حدث خطأ أثناء توليد البروتوكول.', 'danger');
@@ -179,28 +182,26 @@ Your only output is a single, complete block of text: The finalized Genesis Prot
     generateBtn.addEventListener('click', handleGeneration);
     clearBtn.addEventListener('click', clearAll);
 
-    getMaestroProtocolBtn.addEventListener('click', () => {
-    // هذه الدالة ستقوم فقط بنسخ بروتوكول المايسترو إلى الحافظة
-    navigator.clipboard.writeText(MAESTRO_STRATEGY_PROTOCOL)
+    copyPromptBtn.addEventListener('click', () => {
+    if (!generatedPromptOutput.value) return; // حماية إضافية
+
+    navigator.clipboard.writeText(generatedPromptOutput.value)
         .then(() => {
-    showToast('تم نسخ بروتوكول "المايسترو" بنجاح.', 'success');
-    
-    // استخدام toast مخصص للإرشاد بدلاً من alert
-    const guidanceMessage = `
-        <strong class="d-block mb-2">الخطوة التالية:</strong>
-        <ol class="mb-0 ps-3">
-            <li>اذهب إلى نموذج اللغة (LLM).</li>
-            <li>الصق البروتوكول الذي تم نسخه.</li>
-            <li>أضف النص الخام الخاص بك.</li>
-            <li>عد إلى هنا بالمخرجات.</li>
-        </ol>
-            `;
-            // إظهار التوست لمدة أطول قليلاً (مثلاً 10 ثواني)
-            showToast(guidanceMessage, 'info', 10000); 
+            const originalHtml = copyPromptBtn.innerHTML;
+            copyPromptBtn.innerHTML = `<i class="bi bi-check-lg ms-1" aria-hidden="true"></i> تم النسخ!`;
+            copyPromptBtn.disabled = true; // تعطيل مؤقت لمنع الضغط المتكرر
+
+            // إعادة الزر إلى حالته الطبيعية بعد ثانيتين
+            setTimeout(() => {
+                copyPromptBtn.innerHTML = `<i class="bi bi-clipboard ms-1" aria-hidden="true"></i> نسخ البروتوكول`;
+                copyPromptBtn.disabled = false;
+            }, 2000);
+
+            showToast('تم نسخ البروتوكول إلى الحافظة بنجاح.', 'success');
         })
         .catch(err => {
-            console.error('فشل نسخ بروتوكول المايسترو:', err);
-            showToast('فشل نسخ بروتوكول المايسترو.', 'danger');
+            console.error('فشل النسخ:', err);
+            showToast('فشل نسخ البروتوكول.', 'danger');
         });
 });
 });
