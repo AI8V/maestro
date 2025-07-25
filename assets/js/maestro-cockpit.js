@@ -207,4 +207,25 @@ Your only output is a single, complete block of text: The finalized Genesis Prot
             showToast('فشل نسخ البروتوكول.', 'danger');
         });
 });
+        getMaestroProtocolBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(MAESTRO_STRATEGY_PROTOCOL)
+            .then(() => {
+                showToast('تم نسخ بروتوكول "المايسترو" بنجاح.', 'success');
+                
+                const guidanceMessage = `
+                    <strong class="d-block mb-2">الخطوة التالية:</strong>
+                    <ol class="mb-0 ps-3">
+                        <li>اذهب إلى نموذج اللغة (LLM).</li>
+                        <li>الصق البروتوكول الذي تم نسخه.</li>
+                        <li>أضف النص الخام الخاص بك.</li>
+                        <li>عد إلى هنا بالمخرجات.</li>
+                    </ol>
+                `;
+                showToast(guidanceMessage, 'info', 10000); 
+            })
+            .catch(err => {
+                console.error('فشل نسخ بروتوكول المايسترو:', err);
+                showToast('فشل نسخ بروتوكول المايسترو.', 'danger');
+            });
+    });
 });
