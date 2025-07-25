@@ -156,6 +156,9 @@ Your only output is a single, complete block of text: The finalized Genesis Prot
         generatedPromptOutput.value = '';
         document.querySelectorAll('.component-checkbox').forEach(cb => cb.checked = false);
         copyPromptBtn.disabled = true;
+        copyPromptBtn.classList.remove('btn-success');
+        copyPromptBtn.classList.add('btn-danger');
+        copyPromptBtn.innerHTML = `<i class="bi bi-clipboard-x ms-1" aria-hidden="true"></i> نسخ البروتوكول`;
         showToast('تم مسح جميع الحقول.', 'info');
         rawContentInput.focus();
     }
