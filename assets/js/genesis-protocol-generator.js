@@ -9,12 +9,15 @@ const GenesisProtocolGenerator = (function () {
 
     // 1. القوالب الثابتة (البروتوكولات)
     const MAESTRO_GENESIS_TEMPLATE = `GENESIS PROTOCOL
+GENESIS PROTOCOL
 TO: Large Language Model (LLM) - designated as "The Architect"
 FROM: The Maestro (via AI Tech Lead & Chief Strategist)
 SUBJECT:  - Architect a definitive HTML <main> component by synthesizing superior UX/UI design patterns with Ai8V Schema Architect compliant class hooks.
+
 🔥 MANDATE 
 You will operate as a UX & Schema Architect. Your mission is to execute the blueprints below to construct an HTML section that is simultaneously beautiful and 100% compatible with our internal analysis tool, "Schema Architect".
 CRITICAL DIRECTIVE: You will NOT use \`itemscope\`, \`itemtype\`, or \`itemprop\` attributes. The entire semantic layer will be handled by our tool. Your sole responsibility is to build the visual structure and embed the specific CSS class names that our tool is programmed to detect.
+
 📥 [INPUT BLOCK: PROVIDE CONTENT HERE]
 INSTRUCTIONS: To execute, copy this entire protocol and fill in the placeholders below.
 
@@ -69,7 +72,37 @@ Phase 1: Holistic Analysis & Architectural Planning
 (A versatile component for the main subject of the page.)
 <section id="article-hero" class="mb-5">
     <div class="card shadow-sm">
-        <img class="card-img-top w-100 d-block" src="..." alt="..." width="820" height="400" loading="lazy">
+        <!-- START: The Definitive Ai8V Implementation for LCP Image -->
+        <figure class="figure mb-0">
+          <picture>
+            <source 
+                type="image/webp"
+                srcset="
+                    .../hero-image-400.webp 400w,
+                    .../hero-image-820.webp 820w,
+                    .../hero-image-1200.webp 1200w
+                "
+                sizes="(max-width: 991px) 100vw, 83vw"
+            >
+            <img 
+                class="card-img-top img-fluid d-block"
+                src=".../hero-image-820.jpg" 
+                srcset="
+                    .../hero-image-400.jpg 400w,
+                    .../hero-image-820.jpg 820w,
+                    .../hero-image-1200.jpg 1200w
+                "
+                sizes="(max-width: 991px) 100vw, 83vw"
+                width="820"
+                height="400"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="..."
+            >
+          </picture>
+          <figcaption class="figure-caption visually-hidden">...</figcaption>
+        </figure>
         <div class="card-body p-4">
             <article aria-labelledby="main-heading">
                 <!-- Our tool finds H1 for the name -->
@@ -110,14 +143,40 @@ Blueprint 3: 🛠️ How-To Guide
             <h2 id="howto-heading" class="mb-0 h4">... How-To Section Title ...</h2>
         </div>
         <div class="card-body">
-            <img class="rounded img-fluid mb-4" src="..." alt="..." width="785" height="400" loading="lazy">
+            <figure class="figure d-table mx-auto">
+              <picture>
+                <source 
+                    type="image/webp"
+                    srcset="
+                        ... image-400.webp 400w,
+                        ... image-785.webp 785w
+                    "
+                    sizes="(max-width: 991px) 100vw, 83vw"
+                >
+                <img 
+                    class="img-fluid rounded shadow-sm"
+                    src="... image-785.jpg" 
+                    srcset="
+                        ... image-400.jpg 400w,
+                        ... image-785.jpg 785w
+                    "
+                    sizes="(max-width: 991px) 100vw, 83vw"
+                    width="785"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                    alt="..."
+                >
+              </picture>
+              <figcaption class="figure-caption text-center mt-2">
+                ...
+              </figcaption>
+            </figure>
             <div class="instruction-set">
-                <!-- Our tool finds ".howto-step" for the container -->
                 <div class="d-flex align-items-start mb-4 howto-step">
                     <span class="step-counter h4 me-3">1</span>
                     <div class="flex-grow-1 ms-3">
                         <h3 class="h5 fw-bold">... Step 1 Title ...</h3>
-                        <!-- Our tool finds ".step-text" for the description -->
                         <p class="step-text task-description mb-0">... Step 1 Description ...</p>
                     </div>
                 </div>
@@ -135,7 +194,27 @@ Blueprint 4: 🍳 Recipe Card
             <h2 id="recipe-heading" class="mb-0 h4">... Recipe Title ...</h2>
         </div>
         <div class="card-body">
-            <img class="rounded img-fluid mb-3" src="..." alt="..." width="785" height="400" loading="lazy">
+            <figure class="figure d-table mx-auto">
+              <picture>
+                <source 
+                    type="image/webp"
+                    srcset=".../recipe-image-400.webp 400w, .../recipe-image-785.webp 785w"
+                    sizes="(max-width: 991px) 100vw, 83vw"
+                >
+                <img 
+                    class="img-fluid rounded shadow-sm"
+                    src=".../recipe-image-785.jpg" 
+                    srcset=".../recipe-image-400.jpg 400w, .../recipe-image-785.jpg 785w"
+                    sizes="(max-width: 991px) 100vw, 83vw"
+                    width="785"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                    alt="..."
+                >
+              </picture>
+              <figcaption class="figure-caption text-center mt-2">...</figcaption>
+            </figure>
             <p>...</p>
             <div class="row text-center mb-4">
                 <!-- Our tool finds ".prep-time" and ".cook-time" -->
@@ -148,7 +227,7 @@ Blueprint 4: 🍳 Recipe Card
                 <li>... Ingredient 1 ...</li>
             </ul>
             <h3 class="h5 mt-4">التعليمات:</h3>
-             <!-- Our tool finds ".recipe-instructions li" -->
+            <!-- Our tool finds ".recipe-instructions li" -->
             <ol class="list-group list-group-numbered recipe-instructions">
                  <li class="list-group-item">... Instruction 1 ...</li>
             </ol>
@@ -210,7 +289,26 @@ Blueprint 7: 🏢 Organization Card
         </div>
         <div class="card-body">
             <!-- Our tool finds "img" with "logo" in class or alt -->
-            <img src="..." class="img-fluid org-logo" alt="Company Logo">
+            <figure class="figure d-table mx-auto">
+              <picture>
+                 <source 
+                    type="image/webp"
+                    srcset=".../logo-150.webp 150w, .../logo-300.webp 300w"
+                    sizes="150px"
+                >
+                <img 
+                    class="img-fluid org-logo"
+                    src=".../logo-300.png"
+                    srcset=".../logo-150.png 150w, .../logo-300.png 300w"
+                    sizes="150px"
+                    width="250"
+                    height="150"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Company Logo"
+                >
+              </picture>
+            </figure>
             <!-- Our tool finds ".address" -->
             <p class="address mt-3">... Full Address ...</p>
             <!-- Our tool finds "a[href^='tel:']" -->
@@ -253,7 +351,7 @@ loading="eager"
 fetchpriority="high"
 Whenever applicable, include a <figcaption> element to semantically describe the image context and provide assistive clarity.
 💡 Best Practice Example (The Definitive Ai8V Implementation):
- <figure class="figure">
+ <figure class="figure d-table mx-auto">
   <picture>
     <!-- 
       Primary Source: WebP format for modern browsers.
