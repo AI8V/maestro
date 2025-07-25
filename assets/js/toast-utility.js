@@ -10,7 +10,7 @@
  * @param {string} message The message to display inside the toast.
  * @param {string} [type='info'] The type of toast. Can be 'success', 'danger', 'warning', or 'info'.
  */
-function showToast(message, type = 'info') {
+function showToast(message, type = 'info', duration = 5000) { 
     const toastContainer = document.querySelector('.toast-container');
     if (!toastContainer) {
         console.error('Toast container not found.');
@@ -59,7 +59,7 @@ function showToast(message, type = 'info') {
     toastContainer.insertAdjacentHTML('beforeend', toastHtml);
 
     const toastElement = document.getElementById(toastId);
-    const toast = new bootstrap.Toast(toastElement);
+    const toast = new bootstrap.Toast(toastElement, { delay: duration }); 
     
     // Clean up the DOM after the toast is hidden
     toastElement.addEventListener('hidden.bs.toast', () => {
